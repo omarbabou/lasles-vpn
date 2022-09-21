@@ -12,6 +12,7 @@ import IconServers from './graphics/servers.svg';
 import Illustration2 from './graphics/Illustration 2.svg';
 import Check from './graphics/check.svg';
 import IconFree from './graphics/Free.svg';
+import CheckSuccess from './graphics/Vector (4).svg';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -33,7 +34,48 @@ function App() {
     },
   ];
 
-  const features = ['Powerfull online protection.', 'Internet without borders.', 'Supercharged VPN', 'No specific time limits.'];
+  const features = [
+    'Powerfull online protection.',
+    'Internet without borders.',
+    'Supercharged VPN',
+    'No specific time limits.',
+  ];
+
+  const plans = [
+    {
+      title: 'Free Plan',
+      features: [
+         'Unlimited Bandwitch',
+        'Encrypted Connection',
+        'No Traffic Logs',
+        'Works on All Devices',
+      ],
+      price: 'Free',
+    },
+    {
+      title: 'Standard Plan',
+      features: [
+         'Unlimited Bandwitch',
+        'Encrypted Connection',
+        'Yes Traffic Logs',
+        'Works on All Devices',
+        'Connect Anyware',
+      ],
+      price: '$9 / mo',
+    },
+    {
+      title: 'Premium Plan',
+      features: [
+         'Unlimited Bandwitch',
+        'Encrypted Connection',
+        'Yes Traffic Logs',
+        'Works on All Devices',
+        'Connect Anyware',
+        'Get New Features',
+      ],
+      price: '$12 / mo',
+    },
+  ];
 
   return (
     <div className="bg-white">
@@ -49,12 +91,12 @@ function App() {
         </div>
         <div className="space-x-6 flex flex-row items-center">
           <button type="submit" className="font-bold">Sign In</button>
-          <button type="submit" className="border border-red-300 rounded-full py-2 px-6">Sign  Up</button>
+          <button type="submit" className="border border-red-500 rounded-full py-2 px-6">Sign  Up</button>
         </div>
       </header>
 
-      <main className="container max-w-5xl mx-auto">
-        <div className="grid grid-cols-2 py-24">
+      <main>
+        <div className="container max-w-5xl mx-auto grid grid-cols-2 py-24">
           <div>
             <h1 className="font-bold text-4xl pb-5">
               Want anything to be easy
@@ -71,7 +113,7 @@ function App() {
             <img src={Illustration1} alt="illustration-laslesvpn" />
           </div>
         </div>
-        <div className="grid grid-cols-3 shadow-2xl rounded-md py-4">
+        <div className="container max-w-5xl mx-auto grid grid-cols-3 shadow-2xl rounded-md py-4">
           {section3.map((val, index) => (
             <div
               // eslint-disable-next-line react/no-array-index-key
@@ -89,7 +131,7 @@ function App() {
             </div>
             ))}
         </div>
-        <div className="grid grid-cols-2 py-24 items-center">
+        <div className="container max-w-5xl mx-auto grid grid-cols-2 py-24 items-center">
           <img src={Illustration2} alt="features-lasles-vpn" />
           <div className="px-16 space-y-4">
             <div className="font-medium text-3xl">
@@ -117,16 +159,41 @@ function App() {
             }
           </div>
         </div>
-        <div>
-          <div>Choose Your Plan</div>
-          <div>
-            Let's choose the package that is best for you and explore it happily
-            and cheerfully.
+        <div className="bg-gray-50 py-24">
+          <div className="container max-w-5xl mx-auto mb-10">
+            <div className="text-center text-3xl font-medium mb-5">
+              Choose Your Plan
+            </div>
+            <div className="text-center font-normal text-sm text-gray-600">
+              Let's choose the package that is best for you and explore it happily
+              and
+              <br />
+              cheerfully.
+            </div>
           </div>
-          <div className="grid grid-cols-3 spacex-x-6">
+          <div className="container max-w-5xl mx-auto grid grid-cols-3 space-x-6">
             {
-              Array.from(Array(3)).map((val) => <CardPlan {...val} />)
+              plans.map((val, index) => (
+                <CardPlan
+                  key={index}
+                  {...val}
+                  isSelect={index + 1 === plans.length}
+                />
+             ))
             }
+          </div>
+
+          <div>
+            <div className="container max-w-5xl mx-auto mb-10">
+              <div className="text-center text-3xl font-medium mb-5">
+                Huge Global Network of Fast VPN
+              </div>
+              <div className="text-center font-normal text-sm text-gray-600">
+                See LaslesVPN everywhere to make it easier for you when you move
+                <br />
+                locations.
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -134,11 +201,44 @@ function App() {
   );
 }
 
-function CardPlan({ title }) {
+function CardPlan({
+ title, price, features, isSelect,
+}) {
   return (
-    <div>
-      <img src={IconFree} alt="" />
-      <h3>{title}</h3>
+    <div className={`bg-white rounded-md flex flex-col justify-between items-center pt-16 pb-8 border ${
+      isSelect ? 'border-red-500' : 'border-gray-300'}`}
+    >
+      <div className="space-y-5 flex flex-col justify-center items-center">
+        <img src={IconFree} alt="" className="w-24" />
+        <h3>{title}</h3>
+        <div className="space-y-2">
+          {
+        features.map((val, index) => (
+          <div key={index} className="flex flex-row mr-2 items-center space-x-2">
+            <img
+              src={CheckSuccess}
+              alt="check-sucess"
+              className="w-3 h-10"
+            />
+            <div>
+              {val}
+            </div>
+          </div>
+        ))
+      }
+        </div>
+      </div>
+      <div className="mt-8">
+        <div className="text-center mb-3">{price}</div>
+        <button
+          className={`border rounded-full py-1 px-10 border-red-500 ${
+          isSelect ? 'bg-red-500 text-white' : 'bg-white text-red-500'}`}
+          type="submit"
+        >
+          Select
+
+        </button>
+      </div>
     </div>
   );
 }
