@@ -13,6 +13,7 @@ import Illustration2 from './graphics/Illustration 2.svg';
 import Check from './graphics/check.svg';
 import IconFree from './graphics/Free.svg';
 import CheckSuccess from './graphics/Vector (4).svg';
+import Global from './graphics/Huge Global.svg';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -183,17 +184,24 @@ function App() {
             }
           </div>
 
-          <div>
+          <div className="container max-w-5xl mx-auto py-24">
             <div className="container max-w-5xl mx-auto mb-10">
               <div className="text-center text-3xl font-medium mb-5">
-                Huge Global Network of Fast VPN
+                Huge Global Network
+                <br />
+                of Fast VPN
               </div>
               <div className="text-center font-normal text-sm text-gray-600">
-                See LaslesVPN everywhere to make it easier for you when you move
+                See
+                {' '}
+                <strong>LaslesVPN</strong>
+                {' '}
+                everywhere to make it easier for you when you move
                 <br />
                 locations.
               </div>
             </div>
+            <img src={Global} alt="Global" className="my-20" />
           </div>
         </div>
       </main>
