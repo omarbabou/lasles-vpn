@@ -2,6 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable indent */
 import React from 'react';
+
 import IconLaslesVpn from './graphics/Logo.png';
 import Illustration1 from './graphics/Illustration 1.svg';
 import IconUsers from './graphics/users.svg';
@@ -15,7 +16,13 @@ import Reddit from './graphics/sosmed/reddit.svg';
 import Amazon from './graphics/sosmed/amazon.svg';
 import Discord from './graphics/sosmed/discord.svg';
 import Spotify from './graphics/sosmed/spotify.svg';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import CardPlan from './components/CardPlan';
+import Review from './components/Review';
+import TitleDesc from './components/TitleDesc';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -165,17 +172,11 @@ function App() {
           </div>
         </div>
         <div className="bg-gray-50 py-24">
-          <div className="container max-w-5xl mx-auto mb-10">
-            <div className="text-center text-3xl font-medium mb-5">
-              Choose Your Plan
-            </div>
-            <div className="text-center font-normal text-sm text-gray-600">
-              Let's choose the package that is best for you and explore it happily
-              and
-              <br />
-              cheerfully.
-            </div>
-          </div>
+          <TitleDesc
+            title="Choose Your Plan"
+            desc={`Let's choose the package that is best for you and explore it happily
+              and cheerfully.`}
+          />
           <div className="container max-w-5xl mx-auto grid grid-cols-3 space-x-6">
             {
               plans.map((val, index) => (
@@ -189,22 +190,14 @@ function App() {
           </div>
 
           <div className="container max-w-5xl mx-auto py-24">
-            <div className="container max-w-5xl mx-auto mb-10">
-              <div className="text-center text-3xl font-medium mb-5">
-                Huge Global Network
-                <br />
-                of Fast VPN
-              </div>
-              <div className="text-center font-normal text-sm text-gray-600">
-                See
-                {' '}
-                <strong>LaslesVPN</strong>
-                {' '}
-                everywhere to make it easier for you when you move
-                <br />
-                locations.
-              </div>
-            </div>
+            <TitleDesc
+              title="Huge Global Network
+              of Fast VPN"
+              desc={` See
+              LaslesVPN
+              everywhere to make it easier for you when you move`}
+            />
+
             <img src={Global} alt="Global" className="my-20" />
             <div className="flex flex-row justify-center">
               {sosmed.map((val, index) => (
@@ -213,6 +206,8 @@ function App() {
               ))}
             </div>
           </div>
+
+          <Review />
         </div>
       </main>
     </div>
