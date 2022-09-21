@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable indent */
 import React from 'react';
 import IconLaslesVpn from './graphics/Logo.png';
@@ -5,6 +9,9 @@ import Illustration1 from './graphics/Illustration 1.svg';
 import IconUsers from './graphics/users.svg';
 import IconMaps from './graphics/maps.svg';
 import IconServers from './graphics/servers.svg';
+import Illustration2 from './graphics/Illustration 2.svg';
+import Check from './graphics/check.svg';
+import IconFree from './graphics/Free.svg';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -25,6 +32,8 @@ function App() {
       total: '50+',
     },
   ];
+
+  const features = ['Powerfull online protection.', 'Internet without borders.', 'Supercharged VPN', 'No specific time limits.'];
 
   return (
     <div className="bg-white">
@@ -80,7 +89,56 @@ function App() {
             </div>
             ))}
         </div>
+        <div className="grid grid-cols-2 py-24 items-center">
+          <img src={Illustration2} alt="features-lasles-vpn" />
+          <div className="px-16 space-y-4">
+            <div className="font-medium text-3xl">
+              We Provide Many Features You Can Use
+            </div>
+            <div className="text-sm font-normal">
+              You can explore the features that we provide with fun and have
+              their own functions each feature.
+            </div>
+            {
+              features.map((val, index) => (
+                <>
+                  <div className="flex items-center space-x-3" key={index}>
+                    <img
+                      src={Check}
+                      alt="features-check-laslesvpn"
+                      className="w-6 h-6"
+                    />
+                    <div className="text-xs">
+                      {val}
+                    </div>
+                  </div>
+                </>
+                ))
+            }
+          </div>
+        </div>
+        <div>
+          <div>Choose Your Plan</div>
+          <div>
+            Let's choose the package that is best for you and explore it happily
+            and cheerfully.
+          </div>
+          <div className="grid grid-cols-3 spacex-x-6">
+            {
+              Array.from(Array(3)).map((val) => <CardPlan {...val} />)
+            }
+          </div>
+        </div>
       </main>
+    </div>
+  );
+}
+
+function CardPlan({ title }) {
+  return (
+    <div>
+      <img src={IconFree} alt="" />
+      <h3>{title}</h3>
     </div>
   );
 }
