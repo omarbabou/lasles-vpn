@@ -14,6 +14,11 @@ import Check from './graphics/check.svg';
 import IconFree from './graphics/Free.svg';
 import CheckSuccess from './graphics/Vector (4).svg';
 import Global from './graphics/Huge Global.svg';
+import Netflix from './graphics/sosmed/netflix.svg';
+import Reddit from './graphics/sosmed/reddit.svg';
+import Amazon from './graphics/sosmed/amazon.svg';
+import Discord from './graphics/sosmed/discord.svg';
+import Spotify from './graphics/sosmed/spotify.svg';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -77,6 +82,8 @@ function App() {
       price: '$12 / mo',
     },
   ];
+
+  const sosmed = [Netflix, Reddit, Amazon, Discord, Spotify];
 
   return (
     <div className="bg-white">
@@ -202,6 +209,12 @@ function App() {
               </div>
             </div>
             <img src={Global} alt="Global" className="my-20" />
+            <div className="flex flex-row justify-center">
+              {sosmed.map((val, index) => (
+                // eslint-disable-next-line jsx-a11y/alt-text
+                <img key={index} src={val} className="w-38 px-4" />
+              ))}
+            </div>
           </div>
         </div>
       </main>
