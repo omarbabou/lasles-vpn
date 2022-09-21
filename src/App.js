@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable indent */
@@ -11,14 +9,13 @@ import IconMaps from './graphics/maps.svg';
 import IconServers from './graphics/servers.svg';
 import Illustration2 from './graphics/Illustration 2.svg';
 import Check from './graphics/check.svg';
-import IconFree from './graphics/Free.svg';
-import CheckSuccess from './graphics/Vector (4).svg';
 import Global from './graphics/Huge Global.svg';
 import Netflix from './graphics/sosmed/netflix.svg';
 import Reddit from './graphics/sosmed/reddit.svg';
 import Amazon from './graphics/sosmed/amazon.svg';
 import Discord from './graphics/sosmed/discord.svg';
 import Spotify from './graphics/sosmed/spotify.svg';
+import CardPlan from './components/CardPlan';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -212,54 +209,12 @@ function App() {
             <div className="flex flex-row justify-center">
               {sosmed.map((val, index) => (
                 // eslint-disable-next-line jsx-a11y/alt-text
-                <img key={index} src={val} className="w-38 px-4" />
+                <img key={index} src={val} className="w-38 px-4" alt={val} />
               ))}
             </div>
           </div>
         </div>
       </main>
-    </div>
-  );
-}
-
-function CardPlan({
- title, price, features, isSelect,
-}) {
-  return (
-    <div className={`bg-white rounded-md flex flex-col justify-between items-center pt-16 pb-8 border ${
-      isSelect ? 'border-red-500' : 'border-gray-300'}`}
-    >
-      <div className="space-y-5 flex flex-col justify-center items-center">
-        <img src={IconFree} alt="" className="w-24" />
-        <h3>{title}</h3>
-        <div className="space-y-2">
-          {
-        features.map((val, index) => (
-          <div key={index} className="flex flex-row mr-2 items-center space-x-2">
-            <img
-              src={CheckSuccess}
-              alt="check-sucess"
-              className="w-3 h-10"
-            />
-            <div>
-              {val}
-            </div>
-          </div>
-        ))
-      }
-        </div>
-      </div>
-      <div className="mt-8">
-        <div className="text-center mb-3">{price}</div>
-        <button
-          className={`border rounded-full py-1 px-10 border-red-500 ${
-          isSelect ? 'bg-red-500 text-white' : 'bg-white text-red-500'}`}
-          type="submit"
-        >
-          Select
-
-        </button>
-      </div>
     </div>
   );
 }
