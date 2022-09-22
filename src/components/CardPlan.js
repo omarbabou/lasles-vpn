@@ -12,8 +12,8 @@ function CardPlan({
     >
       <div className="space-y-5 flex flex-col justify-center items-center">
         <img src={IconFree} alt="" className="w-24" />
-        <h3>{title}</h3>
-        <div className="space-y-2">
+        <h3 className="font-medium text-black-500 text-xl">{title}</h3>
+        <div className="space-y-2 text-gray-500">
           {
            features.map((val, index) => (
              <div key={index} className="flex flex-row mr-2 items-center space-x-2">
@@ -34,7 +34,7 @@ function CardPlan({
         <div className="text-center mb-3">{price}</div>
         <button
           className={`border rounded-full py-1 px-10 border-red-500 ${
-            isSelect ? 'bg-red-500 text-white' : 'bg-white text-red-500'}`}
+            isSelect ? 'drop-shadow-3xl bg-red-500 text-white' : 'bg-white text-red-500'}`}
           type="submit"
         >
           Select

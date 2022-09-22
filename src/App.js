@@ -103,7 +103,7 @@ function App() {
         </div>
         <div className="space-x-6 flex flex-row items-center">
           <button type="submit" className="font-bold">Sign In</button>
-          <button type="submit" className="border border-red-500 rounded-full py-2 px-6">Sign  Up</button>
+          <button type="submit" className="border border-red-500 text-red-500 rounded-full py-2 px-6">Sign  Up</button>
         </div>
       </header>
 
@@ -111,13 +111,21 @@ function App() {
         <div className="container max-w-5xl mx-auto grid grid-cols-2 py-24">
           <div>
             <h1 className="font-bold text-4xl pb-5">
-              Want anything to be easy
+              Want anything to be
               <br />
-              With LaslesVPN.
+              easy
+              With
+              {' '}
+              <strong>LaslesVPN</strong>
+              .
             </h1>
-            <div className="font-normal text-xs pb-12">
+            <div className="font-normal text-gray-500 text-sm pb-12">
               Provide a network for all your needs with
-              ease and fun using LaslesVPN discover interesting features from us.
+              ease and fun using
+              {' '}
+              <strong>LaslesVPN</strong>
+              {' '}
+              discover interesting features from us.
             </div>
             <button type="submit" className="py-4 px-16 bg-red-500 rounded-md text-white drop-shadow-3xl">Get started</button>
           </div>
@@ -147,9 +155,13 @@ function App() {
           <img src={Illustration2} alt="features-lasles-vpn" />
           <div className="px-16 space-y-4">
             <div className="font-medium text-3xl">
-              We Provide Many Features You Can Use
+              We Provide Many
+              {' '}
+              <br />
+              {' '}
+              Features You Can Use
             </div>
-            <div className="text-sm font-normal">
+            <div className="text-sm text-gray-500 font-normal">
               You can explore the features that we provide with fun and have
               their own functions each feature.
             </div>
@@ -162,7 +174,7 @@ function App() {
                       alt="features-check-laslesvpn"
                       className="w-6 h-6"
                     />
-                    <div className="text-xs">
+                    <div className="text-sm text-gray-400">
                       {val}
                     </div>
                   </div>

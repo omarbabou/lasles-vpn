@@ -10,10 +10,10 @@ export default function CardReview({
     <div className={`border ${isSelect ? 'border-red-500' : 'border-gray-300'} rounded-lg p-5 w-96 h-52 `}>
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row space-x-5">
-          <img src={PolandCard} alt="poland card" className="w-10 h10 rounded-full" />
+          <img src={PolandCard} alt="" className="w-10 h10 rounded-full" />
           <div>
-            <div>{name}</div>
-            <div>{address}</div>
+            <div className="font-bold">{name}</div>
+            <div className="text-gray-400">{address}</div>
           </div>
 
         </div>
@@ -22,7 +22,7 @@ export default function CardReview({
           <img src={StarIcon} alt="star icon" className="w-3 h-3" />
         </div>
       </div>
-      <div className="mt-5">{comment}</div>
+      <div className="mt-5 text-black-100">{comment}</div>
     </div>
   );
 }
