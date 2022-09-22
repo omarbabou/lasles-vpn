@@ -16,6 +16,9 @@ import Reddit from './graphics/sosmed/reddit.svg';
 import Amazon from './graphics/sosmed/amazon.svg';
 import Discord from './graphics/sosmed/discord.svg';
 import Spotify from './graphics/sosmed/spotify.svg';
+import FbIcon from './graphics/sosmed/Facebook.png';
+import TwitterIcon from './graphics/sosmed/Twitter.png';
+import IGIcon from './graphics/sosmed/Instagram.png';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -23,6 +26,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import CardPlan from './components/CardPlan';
 import Review from './components/Review';
 import TitleDesc from './components/TitleDesc';
+import SubscribeNow from './components/SubscribeNow';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -221,7 +225,56 @@ function App() {
 
           <Review />
         </div>
+        <div className="bg-gray-100">
+          <SubscribeNow />
+        </div>
       </main>
+      <footer className="bg-gray-100 py-20">
+        <div className="container mx-auto max-w-5xl flex flex-row  space-x-24">
+          <div className="flex-1 space-y-5">
+            <img src={IconLaslesVpn} alt="logo lasles vpn" className="w-36" />
+            <div>
+              LaslesVPN is a private virtual network that
+              {' '}
+              <br />
+              has unique features and has high security.
+            </div>
+            <div className="flex flex-row">
+              <img src={FbIcon} alt="facebook icon" className="w-16 h-16" />
+              <img src={TwitterIcon} alt="twitter icon" className="w-16 h-16" />
+              <img src={IGIcon} alt="IG icon" className="w-16 h-16" />
+            </div>
+            <div>©2020LaslesVPN</div>
+          </div>
+          <div className="">
+            <div className="text-lg font-semibold mb-6">Product</div>
+            <ul className="space-y-6 text-sm text-gray-500">
+              <li>Pricing</li>
+              <li>Locations</li>
+              <li>Server</li>
+              <li>Countries</li>
+              <li>Blog</li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-lg font-semibold mb-6">Engage</div>
+            <ul className="space-y-6  text-sm text-gray-500">
+              <li>LaslesVPN ? </li>
+              <li>FAQ</li>
+              <li>Tutorials</li>
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-lg font-semibold mb-6">Earn Money</div>
+            <ul className="space-y-6  text-sm text-gray-500">
+              <li>Affiliate</li>
+              <li>Become Partner</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
