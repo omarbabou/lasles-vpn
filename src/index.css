@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 .slick-slide {
-    margin: 0 10px;
-    margin-left: 50px;
+  margin: 0 10px;
+  margin-left: 50px;
 }
