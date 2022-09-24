@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable indent */
 import React from 'react';
+
 import IconLaslesVpn from './graphics/Logo.png';
 import Illustration1 from './graphics/Illustration 1.svg';
 import IconUsers from './graphics/users.svg';
@@ -11,14 +10,23 @@ import IconMaps from './graphics/maps.svg';
 import IconServers from './graphics/servers.svg';
 import Illustration2 from './graphics/Illustration 2.svg';
 import Check from './graphics/check.svg';
-import IconFree from './graphics/Free.svg';
-import CheckSuccess from './graphics/Vector (4).svg';
 import Global from './graphics/Huge Global.svg';
 import Netflix from './graphics/sosmed/netflix.svg';
 import Reddit from './graphics/sosmed/reddit.svg';
 import Amazon from './graphics/sosmed/amazon.svg';
 import Discord from './graphics/sosmed/discord.svg';
 import Spotify from './graphics/sosmed/spotify.svg';
+import FbIcon from './graphics/sosmed/Facebook.png';
+import TwitterIcon from './graphics/sosmed/Twitter.png';
+import IGIcon from './graphics/sosmed/Instagram.png';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import CardPlan from './components/CardPlan';
+import Review from './components/Review';
+import TitleDesc from './components/TitleDesc';
+import SubscribeNow from './components/SubscribeNow';
 
 function App() {
   const menus = ['About', 'Features', 'Pricing', 'Testimonials', 'Help'];
@@ -99,7 +107,7 @@ function App() {
         </div>
         <div className="space-x-6 flex flex-row items-center">
           <button type="submit" className="font-bold">Sign In</button>
-          <button type="submit" className="border border-red-500 rounded-full py-2 px-6">Sign  Up</button>
+          <button type="submit" className="border border-red-500 text-red-500 rounded-full py-2 px-6">Sign  Up</button>
         </div>
       </header>
 
@@ -107,13 +115,21 @@ function App() {
         <div className="container max-w-5xl mx-auto grid grid-cols-2 py-24">
           <div>
             <h1 className="font-bold text-4xl pb-5">
-              Want anything to be easy
+              Want anything to be
               <br />
-              With LaslesVPN.
+              easy
+              With
+              {' '}
+              <strong>LaslesVPN</strong>
+              .
             </h1>
-            <div className="font-normal text-xs pb-12">
+            <div className="font-normal text-gray-500 text-sm pb-12">
               Provide a network for all your needs with
-              ease and fun using LaslesVPN discover interesting features from us.
+              ease and fun using
+              {' '}
+              <strong>LaslesVPN</strong>
+              {' '}
+              discover interesting features from us.
             </div>
             <button type="submit" className="py-4 px-16 bg-red-500 rounded-md text-white drop-shadow-3xl">Get started</button>
           </div>
@@ -143,9 +159,13 @@ function App() {
           <img src={Illustration2} alt="features-lasles-vpn" />
           <div className="px-16 space-y-4">
             <div className="font-medium text-3xl">
-              We Provide Many Features You Can Use
+              We Provide Many
+              {' '}
+              <br />
+              {' '}
+              Features You Can Use
             </div>
-            <div className="text-sm font-normal">
+            <div className="text-sm text-gray-500 font-normal">
               You can explore the features that we provide with fun and have
               their own functions each feature.
             </div>
@@ -158,7 +178,7 @@ function App() {
                       alt="features-check-laslesvpn"
                       className="w-6 h-6"
                     />
-                    <div className="text-xs">
+                    <div className="text-sm text-gray-400">
                       {val}
                     </div>
                   </div>
@@ -168,17 +188,11 @@ function App() {
           </div>
         </div>
         <div className="bg-gray-50 py-24">
-          <div className="container max-w-5xl mx-auto mb-10">
-            <div className="text-center text-3xl font-medium mb-5">
-              Choose Your Plan
-            </div>
-            <div className="text-center font-normal text-sm text-gray-600">
-              Let's choose the package that is best for you and explore it happily
-              and
-              <br />
-              cheerfully.
-            </div>
-          </div>
+          <TitleDesc
+            title="Choose Your Plan"
+            desc={`Let's choose the package that is best for you and explore it happily
+              and cheerfully.`}
+          />
           <div className="container max-w-5xl mx-auto grid grid-cols-3 space-x-6">
             {
               plans.map((val, index) => (
@@ -192,74 +206,75 @@ function App() {
           </div>
 
           <div className="container max-w-5xl mx-auto py-24">
-            <div className="container max-w-5xl mx-auto mb-10">
-              <div className="text-center text-3xl font-medium mb-5">
-                Huge Global Network
-                <br />
-                of Fast VPN
-              </div>
-              <div className="text-center font-normal text-sm text-gray-600">
-                See
-                {' '}
-                <strong>LaslesVPN</strong>
-                {' '}
-                everywhere to make it easier for you when you move
-                <br />
-                locations.
-              </div>
-            </div>
+            <TitleDesc
+              title="Huge Global Network
+              of Fast VPN"
+              desc={` See
+              LaslesVPN
+              everywhere to make it easier for you when you move`}
+            />
+
             <img src={Global} alt="Global" className="my-20" />
             <div className="flex flex-row justify-center">
               {sosmed.map((val, index) => (
                 // eslint-disable-next-line jsx-a11y/alt-text
-                <img key={index} src={val} className="w-38 px-4" />
+                <img key={index} src={val} className="w-38 px-4" alt={val} />
               ))}
             </div>
           </div>
+
+          <Review />
+        </div>
+        <div className="bg-gray-100">
+          <SubscribeNow />
         </div>
       </main>
-    </div>
-  );
-}
-
-function CardPlan({
- title, price, features, isSelect,
-}) {
-  return (
-    <div className={`bg-white rounded-md flex flex-col justify-between items-center pt-16 pb-8 border ${
-      isSelect ? 'border-red-500' : 'border-gray-300'}`}
-    >
-      <div className="space-y-5 flex flex-col justify-center items-center">
-        <img src={IconFree} alt="" className="w-24" />
-        <h3>{title}</h3>
-        <div className="space-y-2">
-          {
-        features.map((val, index) => (
-          <div key={index} className="flex flex-row mr-2 items-center space-x-2">
-            <img
-              src={CheckSuccess}
-              alt="check-sucess"
-              className="w-3 h-10"
-            />
+      <footer className="bg-gray-100 py-20">
+        <div className="container mx-auto max-w-5xl flex flex-row  space-x-24">
+          <div className="flex-1 space-y-5">
+            <img src={IconLaslesVpn} alt="logo lasles vpn" className="w-36" />
             <div>
-              {val}
+              LaslesVPN is a private virtual network that
+              {' '}
+              <br />
+              has unique features and has high security.
             </div>
+            <div className="flex flex-row">
+              <img src={FbIcon} alt="facebook icon" className="w-16 h-16" />
+              <img src={TwitterIcon} alt="twitter icon" className="w-16 h-16" />
+              <img src={IGIcon} alt="IG icon" className="w-16 h-16" />
+            </div>
+            <div>©2020LaslesVPN</div>
           </div>
-        ))
-      }
+          <div className="">
+            <div className="text-lg font-semibold mb-6">Product</div>
+            <ul className="space-y-6 text-sm text-gray-500">
+              <li>Pricing</li>
+              <li>Locations</li>
+              <li>Server</li>
+              <li>Countries</li>
+              <li>Blog</li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-lg font-semibold mb-6">Engage</div>
+            <ul className="space-y-6  text-sm text-gray-500">
+              <li>LaslesVPN ? </li>
+              <li>FAQ</li>
+              <li>Tutorials</li>
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-lg font-semibold mb-6">Earn Money</div>
+            <ul className="space-y-6  text-sm text-gray-500">
+              <li>Affiliate</li>
+              <li>Become Partner</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="mt-8">
-        <div className="text-center mb-3">{price}</div>
-        <button
-          className={`border rounded-full py-1 px-10 border-red-500 ${
-          isSelect ? 'bg-red-500 text-white' : 'bg-white text-red-500'}`}
-          type="submit"
-        >
-          Select
-
-        </button>
-      </div>
+      </footer>
     </div>
   );
 }
